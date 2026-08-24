@@ -1,32 +1,74 @@
-# RUSH Sales Analysis
+# RUSH Sales Intelligence
 
-This project analyzes sales data for the fictional sportswear company **RUSH**. The goal is to clean and combine multiple business tables, answer a set of management questions, and present the results through both a documented Python analysis and an interactive Streamlit dashboard.
+An end-to-end sales analytics project for a fictional sportswear company, built to demonstrate **data-quality investigation, multi-table transformation, validation, business analysis, and interactive decision support**.
 
-## Business Questions
+The project combines a documented Python analysis with a Streamlit dashboard that lets users explore sales performance by product, retailer, geography, month, and sales method.
 
-The analysis is designed to answer the following questions:
+## Business questions
 
-1. What product category had the highest sales in dollars in 2021?
-2. What state had the highest sales of women's products in 2021?
-3. What state had the highest sales of men's products in 2021?
-4. What retailer purchased the most units in 2021? In 2020?
+The analysis was designed to answer management questions such as:
 
-The project also explores broader sales patterns by geography, product category, retailer, month, and sales method.
+1. Which product category generated the most sales in 2021?
+2. Which states led women's and men's product sales?
+3. Which retailer purchased the most units in 2021 and 2020?
+4. How do sales patterns vary by geography, product category, retailer, month, and sales method?
 
-## Project Workflow
+## Why this project matters
 
-The analysis follows a typical data workflow:
+The interesting part of the work was not simply calculating totals. The source tables contained **duplicate and conflicting retailer identifiers**, which meant a straightforward merge could produce misleading results.
 
-- Load the raw data directly from GitHub
-- Review table structure, data types, missing values, and key fields
-- Investigate duplicate and conflicting retailer IDs
-- Create cleaned retailer identifiers where the source data supported a reliable correction
-- Preserve unresolved records rather than assigning them arbitrarily
-- Merge the sales, product, and retailer tables
-- Validate that the merge did not duplicate or remove sales records
-- Calculate sales dollars and other analysis fields
-- Analyze sales performance and trends
-- Export a cleaned dataset for the Streamlit dashboard
+Instead of forcing every record into a clean-looking answer, the workflow:
+
+- investigated conflicting retailer/location IDs,
+- corrected records only where order patterns provided sufficient evidence,
+- preserved unresolved records when the source data did not support a defensible assignment,
+- retained unmatched transactions for valid product and total-sales analysis,
+- and validated that the final merge did not silently add or remove sales records.
+
+That approach prioritizes **traceability and analytical integrity over cosmetic completeness**.
+
+## Interactive dashboard
+
+The Streamlit dashboard provides filters for:
+
+- Year
+- State
+- Product category
+- Specific product
+
+It includes:
+
+- Total sales, units sold, and order KPIs
+- Executive insight cards based on the active filters
+- U.S. sales concentration map
+- State-level hover details
+- Product-category sales analysis
+- Monthly sales trends
+- Retailer performance tables
+
+The visual design uses a Grateful Dead-inspired palette while keeping the analysis focused on the business results.
+
+## What this project demonstrates
+
+- **Data cleaning:** duplicate identifiers, unmatched records, conflicting reference data
+- **Data modeling:** combining transaction, product, and retailer tables
+- **Validation:** checking record counts and merge behavior before analysis
+- **Business analysis:** converting raw transactions into management-level answers
+- **Interactive BI:** building a filterable Streamlit/Plotly dashboard
+- **Analytical judgment:** documenting uncertainty rather than fabricating precision
+
+## Project workflow
+
+1. Load and profile the raw source tables.
+2. Review key fields, data types, nulls, and uniqueness.
+3. Investigate conflicting retailer IDs and location mappings.
+4. Apply evidence-based corrections where possible.
+5. Preserve unresolved records explicitly.
+6. Merge sales, product, and retailer tables.
+7. Validate the merged dataset against the source transactions.
+8. Calculate sales dollars and analysis fields.
+9. Answer management questions and explore broader trends.
+10. Export an analysis-ready dataset for the Streamlit dashboard.
 
 ## Data
 
@@ -36,64 +78,20 @@ The project uses three source tables:
 - `TABLE_PRODUCTS_885.csv` — product names and product IDs
 - `TABLE_RETAILER_885.csv` — retailer and location information
 
-A cleaned and merged dataset is also included:
+The cleaned analysis table is:
 
 - `rush_cleaned_sales.csv`
 
-Additional documentation for the datasets is available in [`data/README.md`](data/README.md).
+Additional field documentation is available in [`data/README.md`](data/README.md).
 
-## Data Quality Notes
-
-During exploratory analysis, several `RETAILER_ID` values that were intended to uniquely identify retailer-location combinations were found to be duplicated across different locations or retailers.
-
-The Walmart and West Gear collisions were investigated using order patterns in the sales data and corrected where the evidence supported a reliable assignment. A group of Sports Direct sales could not be confidently separated between Newark, New Jersey and New York, New York, so those records were intentionally left unresolved rather than assigned arbitrarily.
-
-One additional sales record contained a retailer ID that did not match the retailer table. The transaction was retained for overall sales and product analysis, while its retailer and geographic fields remain unknown.
-
-These decisions are documented in the notebook so the cleaning process remains transparent and reproducible.
-
-## Interactive Dashboard
-
-The Streamlit dashboard provides an interactive way to explore the cleaned data.
-
-Users can filter by:
-
-- Year
-- State
-- Product category
-
-The dashboard includes:
-
-- Total sales, units sold, and order KPIs
-- Executive insight cards
-- U.S. sales concentration map
-- State hover details with sales, units, and top product
-- Product-category sales chart
-- Monthly sales trend
-- Retailer performance table
-
-The visual design uses a Grateful Dead-inspired color palette while keeping the dashboard presentation focused on the business results.
-
-## Tools Used
-
-- Python
-- pandas
-- Plotly
-- Streamlit
-- Google Colab
-- GitHub
-- GitHub Codespaces
-
-## Repository Structure
+## Repository structure
 
 ```text
 GB885-Final-Project-Haskett-C/
-│
-├── GB885_Final_Project_Haskett_C.ipynb
-├── app.py
+├── GB885_Final_Project_Haskett_C.ipynb   # Full EDA, cleaning, validation, analysis
+├── app.py                                # Streamlit sales dashboard
 ├── requirements.txt
 ├── README.md
-│
 └── data/
     ├── README.md
     ├── TABLE_PRODUCTS_885.csv
@@ -102,30 +100,19 @@ GB885-Final-Project-Haskett-C/
     └── rush_cleaned_sales.csv
 ```
 
-## Running the Dashboard
-
-Clone the repository or open it in GitHub Codespaces, then install the required packages:
+## Run the dashboard locally
 
 ```bash
 python -m pip install -r requirements.txt
-```
-
-Run the Streamlit application:
-
-```bash
 python -m streamlit run app.py
 ```
 
-The dashboard will open in a browser and allow the data to be explored interactively.
-
 ## Notebook
 
-The Jupyter notebook contains the full analysis process, including exploratory data analysis, data-quality investigation, cleaning decisions, merge validation, and sales analysis.
+The Jupyter notebook documents the full analytical process, including exploratory analysis, data-quality investigation, cleaning decisions, merge validation, and the final business analysis.
 
-Because the raw CSV files are stored in this repository, the notebook can load the source data directly from GitHub instead of requiring manual file uploads.
+Because the raw CSV files are stored in the repository, the analysis is reproducible without manual file uploads.
 
-## Author
+## Tools
 
-**Ciara Haskett**
-
-GB885 Final Project
+**Python · pandas · Streamlit · Plotly · Jupyter · GitHub**
