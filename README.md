@@ -1,8 +1,10 @@
 # RUSH Sales Intelligence
 
-An end-to-end sales analytics project for a fictional sportswear company, built to demonstrate **data-quality investigation, multi-table transformation, validation, business analysis, and interactive decision support**.
+An end-to-end sales analytics project for a fictional sportswear company, built to demonstrate **data-quality investigation, multi-table transformation, validation, business analysis, interactive decision support, and stakeholder communication**.
 
 The project combines a documented Python analysis with a Streamlit dashboard that lets users explore sales performance by product, retailer, geography, month, and sales method.
+
+**🎥 [Watch the 5-minute stakeholder walkthrough](https://www.loom.com/share/695c7e9aa12f4c85ae3d20fb9c4abcac)**
 
 ## Business questions
 
@@ -12,6 +14,21 @@ The analysis was designed to answer management questions such as:
 2. Which states led women's and men's product sales?
 3. Which retailer purchased the most units in 2021 and 2020?
 4. How do sales patterns vary by geography, product category, retailer, month, and sales method?
+
+## Stakeholder walkthrough
+
+The recorded presentation is structured as a short readout to a sales team. It walks through the project from the raw source files to the final interactive dashboard, including:
+
+- how the three source tables were loaded and explored in Google Colab,
+- checks for nulls, duplicates, unexpected values, and incorrect data types,
+- investigation of non-unique retailer identifiers created from region/state/city combinations,
+- the approach used to distinguish otherwise duplicate retailer records,
+- the move from cleaned tabular data into a more accessible Streamlit experience,
+- and direct answers to the sales team's questions using interactive filters and visualizations.
+
+The walkthrough also highlights broader patterns beyond the requested questions, including the large change in sales between 2020 and 2021 and visible monthly trends.
+
+This is an important part of the project because the goal was not only to perform the analysis, but to **explain the process and results in plain language to a nontechnical audience**.
 
 ## Why this project matters
 
@@ -55,6 +72,7 @@ The visual design uses a Grateful Dead-inspired palette while keeping the analys
 - **Validation:** checking record counts and merge behavior before analysis
 - **Business analysis:** converting raw transactions into management-level answers
 - **Interactive BI:** building a filterable Streamlit/Plotly dashboard
+- **Stakeholder communication:** explaining technical cleaning decisions and business findings in a short sales-team presentation
 - **Analytical judgment:** documenting uncertainty rather than fabricating precision
 
 ## Project workflow
@@ -69,6 +87,7 @@ The visual design uses a Grateful Dead-inspired palette while keeping the analys
 8. Calculate sales dollars and analysis fields.
 9. Answer management questions and explore broader trends.
 10. Export an analysis-ready dataset for the Streamlit dashboard.
+11. Present the workflow and findings in a stakeholder-facing video walkthrough.
 
 ## Data
 
@@ -115,4 +134,4 @@ Because the raw CSV files are stored in the repository, the analysis is reproduc
 
 ## Tools
 
-**Python · pandas · Streamlit · Plotly · Jupyter · GitHub**
+**Python · pandas · Streamlit · Plotly · Jupyter · Google Colab · GitHub**
