@@ -6,7 +6,7 @@ import plotly.express as px
 # Page setup
 # -----------------------------
 st.set_page_config(
-    page_title="RUSH Sales Dashboard",
+    page_title="RUSH Sales Intelligence",
     layout="wide"
 )
 
@@ -74,8 +74,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("RUSH Sales Dashboard")
-st.caption("Interactive exploration of RUSH sales by year, state, and product category.")
+st.title("RUSH Sales Intelligence")
+st.caption("Interactive sales intelligence by year, state, product, retailer, and sales method.")
 
 
 # -----------------------------
