@@ -2,9 +2,9 @@
 
 An end-to-end sales analytics project for a fictional sportswear company, built to demonstrate **data-quality investigation, multi-table transformation, validation, business analysis, interactive decision support, and stakeholder communication**.
 
-The project combines a documented Python analysis with a Streamlit dashboard that lets users explore sales performance by product, retailer, geography, month, and sales method.
+The project combines a documented Python analysis with a deployed Streamlit dashboard that lets users explore sales performance by product, retailer, geography, month, and sales method.
 
-**🚀 [Open the live Streamlit dashboard](https://finalprojectgb885.streamlit.app/)**  
+**🚀 [Open the live Streamlit dashboard](https://rushsalesintel.streamlit.app/)**  
 **🎥 [Watch the 5-minute stakeholder walkthrough](https://www.loom.com/share/695c7e9aa12f4c85ae3d20fb9c4abcac)**
 
 ## Business questions
@@ -20,16 +20,16 @@ The analysis was designed to answer management questions such as:
 
 The recorded presentation is structured as a short readout to a sales team. It walks through the project from the raw source files to the final interactive dashboard, including:
 
-- how the three source tables were loaded and explored in Google Colab,
-- checks for nulls, duplicates, unexpected values, and incorrect data types,
-- investigation of non-unique retailer identifiers created from region/state/city combinations,
-- the approach used to distinguish otherwise duplicate retailer records,
-- the move from cleaned tabular data into a more accessible Streamlit experience,
-- and direct answers to the sales team's questions using interactive filters and visualizations.
+- loading and exploring three source tables in Google Colab,
+- checking nulls, duplicates, unexpected values, and data types,
+- investigating non-unique retailer identifiers created from region/state/city combinations,
+- distinguishing duplicate retailer records where the source data supported a defensible assignment,
+- moving from cleaned tabular data into a more accessible Streamlit experience,
+- and answering the sales team's questions using interactive filters and visualizations.
 
 The walkthrough also highlights broader patterns beyond the requested questions, including the large change in sales between 2020 and 2021 and visible monthly trends.
 
-This is an important part of the project because the goal was not only to perform the analysis, but to **explain the process and results in plain language to a nontechnical audience**.
+The goal was not only to perform the analysis, but to **explain the process and results in plain language to a nontechnical audience**.
 
 ## Why this project matters
 
@@ -109,9 +109,9 @@ Additional field documentation is available in [`data/README.md`](data/README.md
 ## Repository structure
 
 ```text
-GB885-Final-Project-Haskett-C/
-├── GB885_Final_Project_Haskett_C.ipynb   # Full EDA, cleaning, validation, analysis
-├── app.py                                # Streamlit sales dashboard
+rush-sales-intelligence/
+├── GB885_Final_Project_Haskett_C.ipynb   # Full EDA, cleaning, validation, and analysis
+├── app.py                                # Deployed Streamlit sales dashboard
 ├── requirements.txt
 ├── README.md
 └── data/
@@ -129,7 +129,7 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-## Notebook
+## Analysis notebook
 
 The Jupyter notebook documents the full analytical process, including exploratory analysis, data-quality investigation, cleaning decisions, merge validation, and the final business analysis.
 
