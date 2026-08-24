@@ -4,6 +4,7 @@ An end-to-end sales analytics project for a fictional sportswear company, built 
 
 The project combines a documented Python analysis with a Streamlit dashboard that lets users explore sales performance by product, retailer, geography, month, and sales method.
 
+**🚀 [Open the live Streamlit dashboard](https://finalprojectgb885.streamlit.app/)**  
 **🎥 [Watch the 5-minute stakeholder walkthrough](https://www.loom.com/share/695c7e9aa12f4c85ae3d20fb9c4abcac)**
 
 ## Business questions
@@ -46,7 +47,9 @@ That approach prioritizes **traceability and analytical integrity over cosmetic 
 
 ## Interactive dashboard
 
-The Streamlit dashboard provides filters for:
+The live Streamlit dashboard lets users explore the cleaned sales data without needing to work directly in the notebook or source tables.
+
+It provides filters for:
 
 - Year
 - State
@@ -71,7 +74,7 @@ The visual design uses a Grateful Dead-inspired palette while keeping the analys
 - **Data modeling:** combining transaction, product, and retailer tables
 - **Validation:** checking record counts and merge behavior before analysis
 - **Business analysis:** converting raw transactions into management-level answers
-- **Interactive BI:** building a filterable Streamlit/Plotly dashboard
+- **Interactive BI:** building and deploying a filterable Streamlit/Plotly dashboard
 - **Stakeholder communication:** explaining technical cleaning decisions and business findings in a short sales-team presentation
 - **Analytical judgment:** documenting uncertainty rather than fabricating precision
 
@@ -87,7 +90,7 @@ The visual design uses a Grateful Dead-inspired palette while keeping the analys
 8. Calculate sales dollars and analysis fields.
 9. Answer management questions and explore broader trends.
 10. Export an analysis-ready dataset for the Streamlit dashboard.
-11. Present the workflow and findings in a stakeholder-facing video walkthrough.
+11. Deploy the interactive dashboard and present the workflow and findings in a stakeholder-facing video walkthrough.
 
 ## Data
 
